@@ -1,11 +1,12 @@
-import { Routes } from "react-router-dom"
 import "./App.css"
 import SearchAppBar from "./components/SearchAppBar"
 import HomePage from "./pages/HomePage"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material"
-import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles"
-import { blue, deepOrange, grey, purple, red } from "@mui/material/colors"
+import { deepOrange } from "@mui/material/colors"
+import { createContext, useState } from "react"
+import { UserContext } from "./hooks/UserContext"
+import { LoginModalContext } from "./hooks/LoginModalContext"
 
 const theme = createTheme({
 	// palette: {
@@ -20,6 +21,7 @@ const theme = createTheme({
 	// },
 	palette: {
 		mode: "dark",
+
 		primary: {
 			main: "#3f51b5",
 		},
@@ -34,15 +36,28 @@ const router = createBrowserRouter([
 		path: "/",
 		element: <HomePage />,
 	},
+	{
+		path: "/login",
+		element: <HomePage />,
+	},
 ])
 
 function App() {
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const [openLoginModal, setOpenLoginModal] = useState(false)
+
 	return (
 		<div>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
-				<SearchAppBar />
-				<RouterProvider router={router} />
+				<LoginModalContext.Provider
+					value={{ openLoginModal, setOpenLoginModal }}
+				>
+					<UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+						<SearchAppBar />
+						<RouterProvider router={router} />
+					</UserContext.Provider>
+				</LoginModalContext.Provider>
 			</ThemeProvider>
 		</div>
 	)
