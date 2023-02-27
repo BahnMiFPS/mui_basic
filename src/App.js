@@ -7,6 +7,7 @@ import { deepOrange } from "@mui/material/colors"
 import { createContext, useState } from "react"
 import { UserContext } from "./hooks/UserContext"
 import { LoginModalContext } from "./hooks/LoginModalContext"
+import LoginModal from "./components/LoginModal"
 
 const theme = createTheme({
 	// palette: {
@@ -37,15 +38,15 @@ const router = createBrowserRouter([
 		element: <HomePage />,
 	},
 	{
-		path: "/login",
-		element: <HomePage />,
+		path: "login",
+		element: <LoginModal />,
 	},
 ])
 
 function App() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [openLoginModal, setOpenLoginModal] = useState(false)
-
+	console.log(window.location.pathname)
 	return (
 		<div>
 			<ThemeProvider theme={theme}>

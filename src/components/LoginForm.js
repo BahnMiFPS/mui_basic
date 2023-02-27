@@ -13,6 +13,7 @@ import {
 } from "@mui/material"
 import { Box } from "@mui/system"
 import React, { useContext, useState } from "react"
+import { Link } from "react-router-dom"
 import AuthContext from "../hooks/AuthContext"
 import { UserContext } from "../hooks/UserContext"
 
@@ -63,6 +64,7 @@ export default function LoginForm({ handleSignIn }) {
 					label="Password"
 				/>
 			</FormControl>
+
 			<Button
 				onClick={handleLogin}
 				sx={{ m: 1, width: "10ch" }}

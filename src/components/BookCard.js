@@ -16,6 +16,7 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import { UserContext } from "../hooks/UserContext"
 import { useContext } from "react"
 import { LoginModalContext } from "../hooks/LoginModalContext"
+
 const style = {
 	position: "absolute",
 	top: "50%",
@@ -27,6 +28,7 @@ const style = {
 	boxShadow: 24,
 	p: 4,
 }
+
 export default function BookCard({ book }) {
 	const [openLearnMore, setOpenLearnMore] = React.useState(null)
 	const navigate = useNavigate()
