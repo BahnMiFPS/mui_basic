@@ -47,19 +47,21 @@ function LoginLogoutButton() {
 		</Button>
 	) : (
 		<div>
-			<Button
-				color="primary"
-				variant="contained"
-				sx={{ marginLeft: 3 }}
-				onClick={handleLoginModal}
-			>
-				Login
-			</Button>
-			<LoginModal
+			<Link to={"/login"}>
+				<Button
+					color="primary"
+					variant="contained"
+					sx={{ marginLeft: 3 }}
+					onClick={handleLoginModal}
+				>
+					Login
+				</Button>
+			</Link>
+			{/* <LoginModal
 				openLoginModal={openLoginModal}
 				handleClose={handleClose}
 				handleSignIn={handleSignIn}
-			/>
+			/> */}
 		</div>
 	)
 }

@@ -2,6 +2,7 @@ import { Lock } from "@mui/icons-material"
 import { Grid, Modal, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import LoginForm from "./LoginForm"
 const style = {
 	position: "absolute",
@@ -23,15 +24,16 @@ const textStyles = [
 		},
 	},
 ]
-export default function LoginModal({
-	openLoginModal,
-	handleClose,
-	handleSignIn,
-}) {
+function LoginModal() {
+	const navigate = useNavigate()
+	const handleClose = () => {
+		navigate(-1)
+	}
+
 	return (
 		<>
 			<Modal
-				open={openLoginModal}
+				open={true}
 				onClose={handleClose}
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
@@ -58,7 +60,7 @@ export default function LoginModal({
 					</Box>
 					<Typography variant="h5">Login</Typography>
 					<Box width={"100%"}>
-						<LoginForm handleSignIn={handleSignIn} />
+						<LoginForm callback={() => {}} />
 						<Grid
 							justifyContent={"space-between"}
 							display={"flex"}
@@ -78,3 +80,5 @@ export default function LoginModal({
 		</>
 	)
 }
+
+export default LoginModal

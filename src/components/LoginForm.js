@@ -17,7 +17,7 @@ import { Link } from "react-router-dom"
 import AuthContext from "../hooks/AuthContext"
 import { UserContext } from "../hooks/UserContext"
 
-export default function LoginForm({ handleSignIn }) {
+export default function LoginForm({ callback }) {
 	const [username] = useState("Vu copy cai nay")
 	const [password] = useState("123")
 
@@ -27,9 +27,8 @@ export default function LoginForm({ handleSignIn }) {
 	const handleMouseDownPassword = (event) => {
 		event.preventDefault()
 	}
-	const { isLoggedIn, setIsLoggedIn } = useContext(UserContext)
 	const handleLogin = () => {
-		setIsLoggedIn(true)
+		auth.singin(username, callback)
 	}
 
 	return (
@@ -70,7 +69,7 @@ export default function LoginForm({ handleSignIn }) {
 				sx={{ m: 1, width: "10ch" }}
 				variant="contained"
 			>
-				<Link to={"/login"}>Login</Link>
+				Login
 			</Button>
 		</Box>
 	)
