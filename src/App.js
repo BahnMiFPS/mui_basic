@@ -32,17 +32,6 @@ const theme = createTheme({
 	},
 })
 
-const router = createBrowserRouter([
-	{
-		path: "/",
-		element: <HomePage />,
-	},
-	{
-		path: "login",
-		element: <LoginModal />,
-	},
-])
-
 function App() {
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [openLoginModal, setOpenLoginModal] = useState(false)
@@ -56,7 +45,6 @@ function App() {
 				>
 					<UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
 						<SearchAppBar />
-						<RouterProvider router={router} />
 					</UserContext.Provider>
 				</LoginModalContext.Provider>
 			</ThemeProvider>

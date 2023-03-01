@@ -70,7 +70,7 @@ export default function LoginForm({ handleSignIn }) {
 				sx={{ m: 1, width: "10ch" }}
 				variant="contained"
 			>
-				Login
+				<Link to={"/login"}>Login</Link>
 			</Button>
 		</Box>
 	)

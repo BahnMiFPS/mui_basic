@@ -12,10 +12,9 @@ import {
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import { Box } from "@mui/system"
 import React, { useContext, useState } from "react"
-import App from "../App"
+import { Link } from "react-router-dom"
 import { LoginModalContext } from "../hooks/LoginModalContext"
 import { UserContext } from "../hooks/UserContext"
-import LoginForm from "./LoginForm"
 import LoginModal from "./LoginModal"
 
 function LoginLogoutButton() {
